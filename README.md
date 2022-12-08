@@ -2,7 +2,7 @@
 
 # CRUD
  
- -GET    : Get list of picked Universities
+ -GET    : Get list of Universities
  -POST   : Add universities
  -PATCH  : Application sent
  -DELETE : Remove university from 
