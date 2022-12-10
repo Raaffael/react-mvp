@@ -1,46 +1,47 @@
-### WORKS
+### 
 GET   http://localhost:3001/
 Content-Type: application/json
-### WORKS
-GET   http://localhost:3001/course-catalog
+### 
+GET   http://localhost:3001/universities/all
 Content-Type: application/json
 
-### WORKS
-GET   http://localhost:3001/registration
+###
+GET   http://localhost:3001/universities/target
 Content-Type: application/json
 
-### WORKS
-POST  http://localhost:3001/registration
+### 
+POST  http://localhost:3001/universities
 Content-Type: application/json
 
 {
-    "course_id":9,
-    "paid":false
+    "name":"z",
+    "category":"reach",
+    "application_submitted":false
 }
 
-### WORKS
-PATCH  http://localhost:3001/registration
+### 
+PATCH  http://localhost:3001/universities
 Content-Type: application/json
 
 {
-    "reg_id":6,
-    "paid":true
-}
-### WORKS
-
-PATCH  http://localhost:3001/registration
-Content-Type: application/json
-
-{
-    "reg_id":6,
-    "date_registered":"2022-11-13"
+    "school_id":2
 }
 
-### WORKS
-
-DELETE   http://localhost:3001/registration
+### 
+PATCH  http://localhost:3001/universities
 Content-Type: application/json
 
 {
-    "reg_id":6
+    "school_id":2,
+    "category":"none"
+}
+
+
+### 
+
+DELETE   http://localhost:3001/universities
+Content-Type: application/json
+
+{
+    "school_id":13
 }

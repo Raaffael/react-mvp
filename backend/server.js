@@ -19,14 +19,14 @@ pool.connect();
 
 
 
-app.get('/universities', (req, res) => {
+app.get('/universities/all', (req, res) => {
     getSchoolList(req, res);
 });
 app.get('/universities/:type', (req, res) => {
     getSchoolByType(req, res);
 });
 app.post('/universities', (req, res) => {
-    addSchoolsToList(req, res);
+    addSchoolsToDatabase(req, res);
 });
 app.patch('/universities', (req, res) => {
     patchSchool(req, res);
@@ -46,7 +46,7 @@ app.listen(PORT, () => {
 
 async function getSchoolList(req, res) {
     try {
-        const text = 'SELECT * FROM universities;';
+        const text = 'SELECT * FROM university ORDER BY school_id ASC;';
         queryReturn(req, res, text);
     } catch (e) {
         console.error(e.stack);
@@ -54,18 +54,19 @@ async function getSchoolList(req, res) {
 }
 async function getSchoolByType(req, res) {
     try {
-        const text = '';
-        const values = [''];
+        const text = 'SELECT * FROM university WHERE category=$1 ORDER BY school_id ASC';
+        const values = [req.params.type];
         queryReturn(req, res, text,values);
     } catch (e) {
         console.error(e.stack);
     }
 }
-async function addSchoolsToList(req, res) {
+async function addSchoolsToDatabase(req, res) {
     try {
-        const classToAdd = req.body;
-        const text = ''
-        const values = [];
+        const schoolToAdd = req.body;
+        console.log(schoolToAdd)
+        const text = 'INSERT INTO university (name,category,application_submitted) VALUES ($1,$2,$3) RETURNING *;'
+        const values = [schoolToAdd.name,schoolToAdd.category,schoolToAdd.application_submitted];
         queryReturn(req, res, text, values);
     } catch (e) {
         console.error(e.stack);
@@ -73,9 +74,16 @@ async function addSchoolsToList(req, res) {
 }
 async function patchSchool(req, res) {
     try {
-        const classToPatch = req.body;
+        const schoolToPatch = req.body;
         let text = '';
         let values = [];
+        if(schoolToPatch.school_id !==undefined && schoolToPatch.category !== undefined){
+            text = 'UPDATE university SET category = $1 WHERE school_id = $2 RETURNING *;';
+            values = [schoolToPatch.category, schoolToPatch.school_id]
+        }else if(schoolToPatch.school_id !==undefined){
+            text = 'UPDATE university SET application_submitted = NOT application_submitted WHERE school_id = $1 RETURNING *;'
+            values = [schoolToPatch.school_id]
+        }
         queryReturn(req, res, text, values);
     } catch (e) {
         console.error(e.stack);
@@ -83,9 +91,12 @@ async function patchSchool(req, res) {
 }
 async function dropSchoolsFromList(req, res) {
     try {
-        const classToDrop = req.body;
+        const schoolToDrop = req.body;
         let text = '';
-        queryReturn(req, res, text, [classToDrop.reg_id]);
+        if (schoolToDrop.school_id !== undefined) {
+            text = 'DELETE FROM university WHERE school_id = $1 RETURNING *;';
+        }
+        queryReturn(req, res, text, [schoolToDrop.school_id]);
     } catch (e) {
         console.error(e.stack);
     }

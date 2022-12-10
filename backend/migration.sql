@@ -1,4 +1,12 @@
-INSERT INTO university (name,category,applicationSubmitted) VALUES ('Western Governors University','target',false);
-INSERT INTO university (name,category,applicationSubmitted) VALUES ('a','target',false);
-INSERT INTO university (name,category,applicationSubmitted) VALUES ('b','target',false);
-INSERT INTO university (name,category,applicationSubmitted) VALUES ('c','target',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('a','target',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('b','reach',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('c','safety',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('d','target',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('e','reach',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('f','safety',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('g','target',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('h','reach',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('i','safety',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('j','none',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('k','none',false);
+INSERT INTO university (name,category,application_submitted) VALUES ('l','none',false);
