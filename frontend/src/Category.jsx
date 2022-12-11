@@ -46,9 +46,20 @@ const Category = (props) => {
         <div>
 
             <h1>{props.title}</h1>
-            {list.map((item) => (
-                <School {...props} {...categoryProps} university={item} key={item.school_id} />
-            ))}
+            <table>
+                <thead>
+                    <tr>
+                        <th>School Name</th>
+                        <th>School ID</th>
+                        <th>Application Submitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {list.map((item) => (
+                        <School {...props} {...categoryProps} university={item} key={item.school_id} />
+                    ))}
+                </tbody>
+            </table>
             {props.type === 'none' ?
                 <div>
                     <button onClick={handleClick} value={'reach'}>Add to Reach</button>
