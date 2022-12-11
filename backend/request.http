@@ -13,11 +13,14 @@ Content-Type: application/json
 POST  http://localhost:3001/universities
 Content-Type: application/json
 
-{
-    "name":"z",
-    "category":"reach",
-    "application_submitted":false
-}
+
+   {
+        "name":"z",
+        "category":"reach",
+        "application_submitted":false
+    } 
+
+
 
 ### 
 PATCH  http://localhost:3001/universities
@@ -41,7 +44,3 @@ Content-Type: application/json
 
 DELETE   http://localhost:3001/universities
 Content-Type: application/json
-
-{
-    "school_id":13
-}

@@ -6,10 +6,8 @@ const Category = (props) => {
     const [selectedSchool, setSelectedSchool] = useState({});
 
     const categoryProps = {
-        list,
-        setList,
-        selectedSchool,
-        setSelectedSchool
+        list, setList,
+        selectedSchool, setSelectedSchool
     }
     const patchOneSchool = (id, category) => {
         let school = {

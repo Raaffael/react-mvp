@@ -2,13 +2,13 @@
 
 const School = (props) => {
     const handleClick = () => {
-        setSchool();
+        props.setSelectedSchool(props.university);
     }
     const buttonClick = () => {
         toggleApplicationSubmitted(props.university.school_id);
     }
     const toggleApplicationSubmitted = (id) => {
-        let school = {
+        const school = {
             school_id : id
         }
         fetch(`${props.URL}/universities`,{
@@ -19,9 +19,6 @@ const School = (props) => {
         }).then(() => {
             props.setCount(props.count + 1)
         })
-    }
-    const setSchool = () => {
-        props.setSelectedSchool(props.university);
     }
     return (
         <div onClick={handleClick}>

@@ -32,7 +32,7 @@ app.patch('/universities', (req, res) => {
     patchSchool(req, res);
 });
 app.delete('/universities', (req, res) => {
-    dropSchoolsFromList(req, res);
+    clearTable(req, res);
 })
 app.get('*', (req, res) => {
     res.send('Check url');
@@ -89,14 +89,10 @@ async function patchSchool(req, res) {
         console.error(e.stack);
     }
 }
-async function dropSchoolsFromList(req, res) {
+async function clearTable(req, res) {
     try {
-        const schoolToDrop = req.body;
-        let text = '';
-        if (schoolToDrop.school_id !== undefined) {
-            text = 'DELETE FROM university WHERE school_id = $1 RETURNING *;';
-        }
-        queryReturn(req, res, text, [schoolToDrop.school_id]);
+        let text = 'DELETE FROM university;';
+        queryReturn(req, res, text);
     } catch (e) {
         console.error(e.stack);
     }
