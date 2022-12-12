@@ -5,6 +5,7 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 const config = require('./config')[process.env.NODE_ENV || "dev"]
+const data = require('./schoolsFromAPI.json');
 //process.env.NODE_ENV pulls the build command from Render 
 //in this case the script render uses is 'npm start:production' which runs 'node server.js' in render
 //look in package.json under scripts and in the config.js file
@@ -17,7 +18,9 @@ pool.connect();
 
 
 
-
+app.get('/api', (req,res) => {
+    res.send(data)
+})
 
 app.get('/universities/all', (req, res) => {
     getSchoolList(req, res);

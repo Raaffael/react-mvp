@@ -19,6 +19,7 @@ const LoadFromAPI = (props) => {
          fetch('http://universities.hipolabs.com/search?country=united+states')
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 props.setSchools(data)
             }).then(() => {
                 setAPIloaded(true);
