@@ -26,6 +26,7 @@ const LoadFromAPI = (props) => {
         //         setAPIloaded(true);
         //     })
         props.setSchools(data);
+        setAPIloaded(true)
     }
 
     useEffect(() => {
