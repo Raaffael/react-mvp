@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PostToDatabase from './PostToDatabase';
+import data from './schoolsFromAPI.json';
 
 
 const LoadFromAPI = (props) => {
@@ -16,14 +17,15 @@ const LoadFromAPI = (props) => {
             })
     }
     const getData =  () => {
-         fetch('http://universities.hipolabs.com/search?country=united+states')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                props.setSchools(data)
-            }).then(() => {
-                setAPIloaded(true);
-            })
+        //  fetch('http://universities.hipolabs.com/search?country=united+states')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         props.setSchools(data)
+        //     }).then(() => {
+        //         setAPIloaded(true);
+        //     })
+        props.setSchools(data);
     }
 
     useEffect(() => {
