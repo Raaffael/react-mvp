@@ -109,12 +109,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start:production": "node server.js",
-    "start:dev": "NODE_ENV=dev nodemon server.js",
-    "start:test": "NODE_ENV=test nodemon server.js"
+    "start": "node server.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC"
 }
