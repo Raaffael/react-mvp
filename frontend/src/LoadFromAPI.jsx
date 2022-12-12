@@ -16,7 +16,7 @@ const LoadFromAPI = (props) => {
             })
     }
     const getData =  () => {
-         fetch(`${props.URL}/api`)
+         fetch('http://universities.hipolabs.com/search?country=united+states')
             .then(response => response.json())
             .then(data => {
                 console.log(data)
