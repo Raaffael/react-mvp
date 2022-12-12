@@ -19,7 +19,7 @@ pool.connect();
 
 
 app.get('/api', (req,res) => {
-    res.send(data)
+    getAPI(res)
 })
 
 app.get('/universities/all', (req, res) => {
@@ -46,7 +46,13 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Our app is running on ${PORT}`)
 });
-
+async function getAPI (req,res){
+    try {
+        res.send(data)
+    } catch (e) {
+        console.error(e.stack);
+    }
+}
 async function getSchoolList(req, res) {
     try {
         const text = 'SELECT * FROM university ORDER BY school_id ASC;';
