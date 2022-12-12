@@ -7,8 +7,8 @@ function App() {
   const [count, setCount] = useState(0);
   const [schoolCount, setSchoolCount] = useState(0);
   const [schools, setSchools] = useState([]);
-  const URL = 'postgres://mvp_react_db_user:wmpV722V1l4F7vnicemVZX5lmHMxEtrR@dpg-cebbo02rrk0bbteas02g-a/mvp_react_db';
-  //const URL = 'http://localhost:3001';
+  //const URL = 'postgres://mvp_react_db_user:wmpV722V1l4F7vnicemVZX5lmHMxEtrR@dpg-cebbo02rrk0bbteas02g-a/mvp_react_db';
+  const URL = 'http://localhost:3001';
   const howManySchools = 10;
 
 
