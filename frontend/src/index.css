@@ -1,3 +1,32 @@
+.eachSchool{
+  text-align: center;
+
+}
+.eachSchool:hover {
+  background-color: gold;
+}
+.eachSchool:active {
+  background-color: goldenrod;
+}
+.potentialSchools {
+  padding: 5%;
+}
+.categorizedSchools {
+  padding: 5%;
+}
+.AppLoaded {
+  display: flex;
+  flex-direction: row;
+}
+.category {
+  border: 2px solid black;
+  padding: 2%;
+}
+.buttonDiv{
+  padding: 3%;
+}
+
+
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;

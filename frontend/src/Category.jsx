@@ -4,6 +4,7 @@ import School from './School';
 const Category = (props) => {
     const [list, setList] = useState([]);
     const [selectedSchool, setSelectedSchool] = useState({});
+    
 
     const categoryProps = {
         list, setList,
@@ -43,16 +44,15 @@ const Category = (props) => {
     }, [props.count]);
 
     return (
-        <div>
-
+        <div >
             <h1>{props.title}</h1>
-            <table>
+            <table className='category'>
                 <thead>
-                    <tr>
-                        <th>School Name</th>
-                        <th>School ID</th>
-                        <th>Application Submitted</th>
-                    </tr>
+                        <tr>
+                            <th>School Name</th>
+                            <th>School ID</th>
+                            <th>Application Submitted</th>
+                        </tr>
                 </thead>
                 <tbody>
                     {list.map((item) => (
@@ -61,13 +61,17 @@ const Category = (props) => {
                 </tbody>
             </table>
             {props.type === 'none' ?
-                <div>
-                    <button onClick={handleClick} value={'reach'}>Add to Reach</button>
+                <div className='buttonDiv'>
+                    <button  onClick={handleClick} value={'reach'}>Add to Reach</button>
                     <button onClick={handleClick} value={'target'}>Add to Target</button>
                     <button onClick={handleClick} value={'safety'}>Add to Safety</button>
                 </div>
                 :
-                <button onClick={handleClick} value={'drop'}>others</button>}
+                <div className='buttonDiv'>
+
+                    <button className='dropButton' onClick={handleClick} value={'drop'}>Remove</button>
+                </div>
+                }
         </div>
     )
 }

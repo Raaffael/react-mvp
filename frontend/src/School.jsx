@@ -1,8 +1,11 @@
-
+import { useState } from "react";
 
 const School = (props) => {
+    const [isActive, setIsActive] = useState(false);
+
     const handleClick = () => {
         props.setSelectedSchool(props.university);
+        setIsActive(!isActive);
     }
     const buttonClick = () => {
         toggleApplicationSubmitted(props.university.school_id);
@@ -21,7 +24,9 @@ const School = (props) => {
         })
     }
     return (
-        <tr onClick={handleClick}>
+        <tr onClick={handleClick} className={'eachSchool'} style={{
+            backgroundColor: isActive ? 'goldenrod' : ''
+        }}>
             <td>{props.university.name}</td>
             <td>{props.university.school_id}</td>
             <td><button onClick={buttonClick}>{props.university.application_submitted + ''}</button></td>

@@ -4,7 +4,7 @@ const PostToDatabase = (props) => {
 
     const passToDatabase =  (data) => {
             let school = {
-                name: data[props.schoolCount].name,
+                name: data[Math.floor(Math.random() * 2190)].name,
                 category: 'none',
                 application_submitted: false
             }
@@ -16,7 +16,6 @@ const PostToDatabase = (props) => {
             })
                 .then(() => {
                     props.setSchoolCount(props.schoolCount + 1);
-                    console.log(props.schoolCount, 'Counter')
                 })
     }
 

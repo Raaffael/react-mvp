@@ -27,7 +27,7 @@ function App() {
           <LoadFromAPI {...properties}/>
         </div>
         :
-        <div >
+        <div className='AppLoaded'>
           <PotentialSchools {...properties} />
           <CategorizedSchools {...properties} />
         </div>
